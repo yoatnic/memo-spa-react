@@ -10,23 +10,7 @@ module.exports = {
   devServer: {
     contentBase: "public/",
     historyApiFallback: true,
-    port: 8080,
-    before(app) {
-      app.get("/items", (req, res) => {
-        const url = require("url");
-        const urlParts = url.parse(req.url, true);
-        const query = urlParts.query;
-        const items = [];
-        for (let i = 1; i <= 20; i++) {
-          const itemId = parseInt(query.startAt) + i;
-          items.push({
-            itemId,
-            text: `items${itemId}`
-          });
-        }
-        res.json(items);
-      });
-    }
+    port: 8080
   },
   module: {
     rules: [
