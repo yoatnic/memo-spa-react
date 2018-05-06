@@ -34,11 +34,11 @@ class MdEditor extends React.Component {
       <div style={{ display: "flex" }}>
         <textarea
           onChange={this.onChangeMd}
-          style={{ width: "50%", height: "500px" }}
+          style={{ width: "40%", height: "500px" }}
           value={this.state.markdown}
         />
         <div
-          style={{ width: "50%", textAlign: "left" }}
+          style={{ width: "40%", textAlign: "left" }}
           dangerouslySetInnerHTML={{ __html: this.preview() }}
         />
       </div>

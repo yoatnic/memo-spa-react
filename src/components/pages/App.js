@@ -7,20 +7,28 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      isLogin: !!window.firebase.auth().currentUser
+      isLogin: !!window.firebase.auth().currentUser,
+      userData: null
     };
   }
 
   componentDidMount() {
     window.firebase.auth().onAuthStateChanged(user => {
       this.setState(prevState => {
-        return Object.assign({}, prevState, { isLogin: !!user });
+        return Object.assign({}, prevState, {
+          isLogin: !!user,
+          userData: user
+        });
       });
     });
   }
 
   render() {
-    return this.state.isLogin ? <Editor /> : <Home />;
+    return this.state.isLogin ? (
+      <Editor userData={this.state.userData} />
+    ) : (
+      <Home />
+    );
   }
 }
 

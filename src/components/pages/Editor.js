@@ -9,7 +9,7 @@ const Editor = (props: any) => {
   return (
     <div>
       <button onClick={logout}>sigin out</button>
-      <MdEditorList />
+      <MdEditorList userData={props.userData} />
     </div>
   );
 };
