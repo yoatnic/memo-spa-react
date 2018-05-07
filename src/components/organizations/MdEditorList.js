@@ -1,5 +1,5 @@
 import React from "react";
-import MdEditor from "./MdEditor";
+import MdEditor from "../molecules/MdEditor";
 
 class MdEditorList extends React.Component {
   constructor() {

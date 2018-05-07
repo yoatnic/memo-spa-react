@@ -1,6 +1,6 @@
 //@flow
 import React from "react";
-import MdEditorList from "../molecules/MdEditorList";
+import MdEditorList from "../organizations/MdEditorList";
 
 const Editor = (props: any) => {
   const logout = () => {
