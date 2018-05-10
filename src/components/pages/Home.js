@@ -1,9 +1,10 @@
 //@flow
 import React from "react";
+import firebase from "../../infra/Firebase";
 
 const Home = (props: any) => {
   const googleLogin = () => {
-    window.firebase
+    firebase
       .auth()
       .signInWithRedirect(new window.firebase.auth.GoogleAuthProvider());
   };

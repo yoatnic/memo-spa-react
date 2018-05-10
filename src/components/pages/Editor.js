@@ -1,10 +1,11 @@
 //@flow
 import React from "react";
 import MdEditorList from "../organizations/MdEditorList";
+import firebase from "../../infra/Firebase";
 
 const Editor = (props: any) => {
   const logout = () => {
-    window.firebase.auth().signOut();
+    firebase.auth().signOut();
   };
   return (
     <div>

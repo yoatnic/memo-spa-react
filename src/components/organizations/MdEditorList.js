@@ -1,5 +1,6 @@
 import React from "react";
 import MdEditor from "../molecules/MdEditor";
+import firebase from "../../infra/Firebase";
 
 class MdEditorList extends React.Component {
   constructor() {
@@ -14,7 +15,7 @@ class MdEditorList extends React.Component {
   }
 
   componentDidMount() {
-    window.firebase
+    firebase
       .database()
       .ref(`memos/${this.props.userData.uid}`)
       .once("value")
@@ -57,7 +58,7 @@ class MdEditorList extends React.Component {
   }
 
   saveMemos() {
-    window.firebase
+    firebase
       .database()
       .ref(`memos/${this.props.userData.uid}`)
       .set(this.state.memos);

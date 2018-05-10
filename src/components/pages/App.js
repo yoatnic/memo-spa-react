@@ -2,18 +2,19 @@ import React from "react";
 
 import Home from "./Home";
 import Editor from "./Editor";
+import firebase from "../../infra/Firebase";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      isLogin: !!window.firebase.auth().currentUser,
+      isLogin: !!firebase.auth().currentUser,
       userData: null
     };
   }
 
   componentDidMount() {
-    window.firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged(user => {
       this.setState(prevState => {
         return Object.assign({}, prevState, {
           isLogin: !!user,
