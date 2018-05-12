@@ -3,16 +3,50 @@ import React from "react";
 import MdEditorList from "../organizations/MdEditorList";
 import firebase from "../../infra/Firebase";
 
-const Editor = (props: any) => {
-  const logout = () => {
-    firebase.auth().signOut();
-  };
-  return (
-    <div>
-      <button onClick={logout}>sigin out</button>
-      <MdEditorList userData={props.userData} />
-    </div>
-  );
-};
+class Editor extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      isLoading: true,
+      isLogin: false,
+      userData: null
+    };
+  }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(user => {
+      this.setState(prevState => {
+        return Object.assign({}, prevState, {
+          isLoading: false,
+          isLogin: !!user,
+          userData: user
+        });
+      });
+    });
+  }
+
+  render() {
+    if (this.state.isLoading) {
+      return <div>loading...</div>;
+    }
+
+    if (!this.state.isLogin) {
+      window.location = "/";
+      return <div />;
+    }
+
+    const logout = () => {
+      firebase.auth().signOut();
+    };
+
+    return (
+      <div>
+        <button onClick={logout}>sigin out</button>
+        <MdEditorList userData={this.state.userData} />
+      </div>
+    );
+  }
+}
 
 export default Editor;
