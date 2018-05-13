@@ -2,7 +2,13 @@ import React from "react";
 import MdEditor from "../molecules/MdEditor";
 import firebase from "../../infra/Firebase";
 
-class MdEditorList extends React.Component {
+type Props = {
+  userData: {
+    uid: any
+  }
+};
+
+class MdEditorList extends React.Component<Props> {
   constructor() {
     super();
     this.state = {

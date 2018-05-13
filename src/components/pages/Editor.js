@@ -3,7 +3,15 @@ import React from "react";
 import MdEditorList from "../organizations/MdEditorList";
 import firebase from "../../infra/Firebase";
 
-class Editor extends React.Component {
+type Props = {};
+
+type State = {
+  isLoading: boolean,
+  isLogin: boolean,
+  userData: any
+};
+
+class Editor extends React.Component<Props, State> {
   constructor() {
     super();
 

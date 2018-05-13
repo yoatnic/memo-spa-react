@@ -2,7 +2,13 @@
 import React from "react";
 import firebase from "../../infra/Firebase";
 
-class Home extends React.Component {
+type Props = {};
+
+type State = {
+  isLogin: boolean
+};
+
+class Home extends React.Component<Props, State> {
   constructor() {
     super();
 
