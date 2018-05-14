@@ -1,6 +1,5 @@
-import firebase from "firebase";
 import config from "./FirebaseConfig";
 
-firebase.initializeApp(config);
+window.firebase.initializeApp(config);
 
-export default firebase;
+export default window.firebase;
