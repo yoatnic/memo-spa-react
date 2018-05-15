@@ -1,24 +1,18 @@
 //@flow
 import { connect } from "react-redux";
 import AppRouter from "../../AppRouter";
-import { requestNextItems, receiveNextItems } from "../../actions/FetchItems";
-import type { State } from "../../reducers/ItemsReducer";
-import { fetchNewItems } from "../../API/Items";
+import { editMarkdown } from "../../actions/MarkdownActions";
 
-const mapStateToProps = (state: State): State => {
+const mapStateToProps = state => {
   return {
-    items: state.items
+    markdown: state.markdown
   };
 };
 
 const mapDispatchToProps = (dispatch: Function) => {
   return {
-    async onGetNextItems(lastItemId: number): Promise<any> {
-      dispatch(requestNextItems(lastItemId));
-
-      const res = await fetchNewItems(lastItemId);
-      const json = await res.json();
-      dispatch(receiveNextItems(json));
+    async editMarkdown(markdown: string): Promise<any> {
+      dispatch(editMarkdown(markdown));
     }
   };
 };

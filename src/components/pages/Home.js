@@ -28,7 +28,6 @@ class Home extends React.Component<Props, State> {
   }
 
   render() {
-    console.log(this.state.isLogin);
     if (this.state.isLogin) {
       window.location = "/edit";
       return <div />;
