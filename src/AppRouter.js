@@ -5,11 +5,12 @@ import Home from "./components/pages/Home";
 import Editor from "./components/pages/Editor";
 
 const AppRouter = (props: any) => {
+  console.log(props);
   return (
     <BrowserRouter>
       <div>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/edit" component={Editor} />
+        <Route exact path="/" render={() => <Home {...props} />} />
+        <Route exact path="/edit" render={() => <Editor {...props} />} />
       </div>
     </BrowserRouter>
   );
