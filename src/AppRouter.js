@@ -5,7 +5,6 @@ import Home from "./components/pages/Home";
 import Editor from "./components/pages/Editor";
 
 const AppRouter = (props: any) => {
-  console.log(props);
   return (
     <BrowserRouter>
       <div>
